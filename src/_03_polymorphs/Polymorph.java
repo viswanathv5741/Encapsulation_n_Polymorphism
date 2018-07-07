@@ -3,16 +3,20 @@ package _03_polymorphs;
 import java.awt.Graphics;
 
 public abstract class Polymorph {
-    int x;
-    int y;
+    protected double x;
+    protected double y;
+    protected int width;
+    protected int height;
     
-    Polymorph(int x, int y){
+    Polymorph(double x, double y, int width, int height){
    	 this.x = x;
    	 this.y = y;
+   	 this.width = width;
+   	 this.height = height;
     }
     
     public void update(){
-   	 
+
     }
     
     public abstract void draw(Graphics g);
