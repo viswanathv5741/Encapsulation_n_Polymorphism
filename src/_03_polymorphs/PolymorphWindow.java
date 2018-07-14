@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -21,7 +23,9 @@ public class PolymorphWindow extends JPanel implements ActionListener{
 //    Polymorph bluePoly;
 //    Polymorph redPoly;
 //    Polymorph movePoly;
-    Polymorph circlePoly;
+//    Polymorph circlePoly;
+//    Polymorph mousePoly;
+    Polymorph imagePoly = new ImageMorph(50,50,50,50);
     
     public static void main(String[] args) {
    	 new PolymorphWindow().buildWindow();
@@ -34,11 +38,16 @@ public class PolymorphWindow extends JPanel implements ActionListener{
    	 window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
    	 window.pack();
    	 window.setVisible(true);
+   	
    	 
 //   	 polys[0] = new BluePolymorph(50, 50, 20, 40);
 //   	 polys[1] = new RedPolymorph(80,80,20,40);
 //   	 polys[2] = new MovingMorph(80,80,20,40);
-   	 circlePoly = new CircleMorph(50,50,10,10);
+//   	 circlePoly = new CircleMorph(50,50,10,10);
+//   	 mousePoly = new MouseMorph(50,50,10,10);
+   	
+   	 
+   	 this.addMouseListener((MouseListener) imagePoly);
    	 
    	 timer = new Timer(1000 / 30, this);
    	 timer.start();
@@ -53,10 +62,12 @@ public class PolymorphWindow extends JPanel implements ActionListener{
 //   	 for (Polymorph p: polys){
 //   		 p.draw(g);
 //   	 }
-   	 circlePoly.draw(g);
+//   	 circlePoly.draw(g);
 //   	 polys[0].draw(g);
 //   	 polys[1].draw(g);
 //   	 polys[2].draw(g);
+//   	 mousePoly.draw(g);
+   	 imagePoly.draw(g);
     }
 
     @Override
@@ -65,9 +76,11 @@ public class PolymorphWindow extends JPanel implements ActionListener{
 //   	for (Polymorph p: polys){
 //  		 p.update();
 //  	 }
-   	circlePoly.update();
+//   	circlePoly.update();
 //   	 polys[0].update();
 //   	 polys[1].update();
 //   	 polys[2].update();
+//   	 mousePoly.update();
+   	 imagePoly.update();
     }
 }

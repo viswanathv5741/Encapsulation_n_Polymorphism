@@ -11,7 +11,7 @@ public class MovingMorph extends Polymorph{
 	@Override
 	public void draw(Graphics g) {
 		g.setColor(Color.gray);
-		g.fillRect(x, y, width, height);
+		g.fillRect((int)x, (int)y, width, height);
 	
 	}
 	
