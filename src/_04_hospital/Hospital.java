@@ -25,4 +25,18 @@ public class Hospital {
 	public ArrayList<Patient> getPatients(){
 		return patients; 
 	}
+	public void assignPatientsToDoctors() {
+		int i=0;
+		for (Doctor d: doctors) {
+			for (int p=0; p<patients.size(); p++) {
+				try {
+					d.assignPatient(patients.get(p));
+					patients.remove(p);
+					p--;
+				}catch(Exception DoctorFullException){
+					break;
+				}
+			}
+		}
+	}
 }
